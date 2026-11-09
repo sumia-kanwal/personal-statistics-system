@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Questionnaire | Portfolio Project #3</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">PS</span>
+        <span>Profile Questionnaire</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false">Menu</button>
+      <nav class="nav-links">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="questionnaire.html">Questionnaire</a>
+        <a href="admin.html">Administrator</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="page">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">Portfolio Project #3</span>
+        <h1>Profile Questionnaire</h1>
+        <p>
+          An online questionnaire that collects personal statistical information from participants
+          and stores each submission as a structured record for descriptive research.
+        </p>
+        <a class="btn btn-primary" href="questionnaire.html">Open questionnaire</a>
+      </div>
+      <div class="hero-card">
+        <strong>Initial dataset</strong>
+        <p>The dataset starts empty. No sample or generated research data is included. Responses stay in this browser and are not uploaded to a server. Charts and averages appear only after real submissions.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What is collected</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Background</h3>
+          <p>Name, age, gender, nationality, education, marital status, student/employee status, hobbies, and country of residence.</p>
+        </article>
+        <article class="card">
+          <h3>Physical measures</h3>
+          <p>Height in centimetres and weight in kilograms, used for average height and weight on the dashboard.</p>
+        </article>
+        <article class="card">
+          <h3>Daily habits</h3>
+          <p>Typical daily sleeping hours and daily exercise duration in minutes.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>How the system works</h2>
+      <ol>
+        <li>A participant completes and submits the validated questionnaire.</li>
+        <li>The browser saves that response as one record in localStorage.</li>
+        <li>The administrator dashboard shows counts, averages, distributions, a record table, and CSV export.</li>
+        <li>Optional: export the CSV and analyse it with the included C++ statistics program.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">University portfolio project · Data stays in this browser until exported</footer>
+  <script src="js/nav.js"></script>
+</body>
+</html>

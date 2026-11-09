@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questionnaire | Profile Questionnaire</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">PS</span>
+        <span>Profile Questionnaire</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false">Menu</button>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="questionnaire.html" aria-current="page">Questionnaire</a>
+        <a href="admin.html">Administrator</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="page">
+    <h1>Participant questionnaire</h1>
+    <p>All 13 items are required. Records stored in this browser: <strong id="record-count">0</strong>.</p>
+    <p class="notice">Do not enter medical diagnoses. This form is for descriptive statistics only. Responses are saved in this browser and are not sent to a server. The dataset contains only answers people actually submit.</p>
+    <div class="error" id="submission-error" role="alert"></div>
+
+    <form id="stats-form" class="form-card" novalidate>
+      <div class="grid-2">
+        <div class="field" data-field="name">
+          <label for="name">1. Name <span class="required">*</span></label>
+          <input id="name" name="name" type="text" maxlength="80" autocomplete="name">
+          <div class="error" data-error="name"></div>
+        </div>
+        <div class="field" data-field="age">
+          <label for="age">2. Age <span class="required">*</span></label>
+          <input id="age" name="age" type="number" min="1" max="120" step="1">
+          <div class="error" data-error="age"></div>
+        </div>
+      </div>
+
+      <div class="field" data-field="gender">
+        <fieldset>
+          <legend>3. Gender <span class="required">*</span></legend>
+          <label class="option"><input type="radio" name="gender" value="Male"> Male</label>
+          <label class="option"><input type="radio" name="gender" value="Female"> Female</label>
+          <label class="option"><input type="radio" name="gender" value="Prefer not to say"> Prefer not to say</label>
+        </fieldset>
+        <div class="error" data-error="gender"></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="field" data-field="nationality">
+          <label for="nationality">4. Nationality <span class="required">*</span></label>
+          <input id="nationality" name="nationality" type="text" list="nation-list" maxlength="60">
+          <datalist id="nation-list">
+            <option value="Korean"></option>
+            <option value="Japanese"></option>
+            <option value="Chinese"></option>
+            <option value="American"></option>
+            <option value="British"></option>
+            <option value="Vietnamese"></option>
+            <option value="Filipino"></option>
+            <option value="Indian"></option>
+          </datalist>
+          <div class="error" data-error="nationality"></div>
+        </div>
+        <div class="field" data-field="education">
+          <label for="education">5. Education level <span class="required">*</span></label>
+          <select id="education" name="education">
+            <option value="">Select one</option>
+            <option>High school</option>
+            <option>Diploma / vocational</option>
+            <option>Bachelor's degree</option>
+            <option>Master's degree</option>
+            <option>Doctorate</option>
+            <option>Other</option>
+          </select>
+          <div class="error" data-error="education"></div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="field" data-field="heightCm">
+          <label for="heightCm">6. Height in centimetres <span class="required">*</span></label>
+          <input id="heightCm" name="heightCm" type="number" min="50" max="250" step="0.1">
+          <p class="hint">Example: 170</p>
+          <div class="error" data-error="heightCm"></div>
+        </div>
+        <div class="field" data-field="weightKg">
+          <label for="weightKg">7. Weight in kilograms <span class="required">*</span></label>
+          <input id="weightKg" name="weightKg" type="number" min="20" max="400" step="0.1">
+          <p class="hint">Example: 65.5</p>
+          <div class="error" data-error="weightKg"></div>
+        </div>
+      </div>
+
+      <div class="field" data-field="maritalStatus">
+        <fieldset>
+          <legend>8. Marital status <span class="required">*</span></legend>
+          <label class="option"><input type="radio" name="maritalStatus" value="Single"> Single</label>
+          <label class="option"><input type="radio" name="maritalStatus" value="Married"> Married</label>
+          <label class="option"><input type="radio" name="maritalStatus" value="Divorced"> Divorced</label>
+          <label class="option"><input type="radio" name="maritalStatus" value="Widowed"> Widowed</label>
+          <label class="option"><input type="radio" name="maritalStatus" value="Prefer not to say"> Prefer not to say</label>
+        </fieldset>
+        <div class="error" data-error="maritalStatus"></div>
+      </div>
+
+      <div class="field" data-field="occupationalStatus">
+        <fieldset>
+          <legend>9. Status (student or employee) <span class="required">*</span></legend>
+          <label class="option"><input type="radio" name="occupationalStatus" value="Student"> Student</label>
+          <label class="option"><input type="radio" name="occupationalStatus" value="Employee"> Employee</label>
+        </fieldset>
+        <div class="error" data-error="occupationalStatus"></div>
+      </div>
+
+      <div class="field" data-field="hobbies">
+        <label for="hobbies">10. Hobbies <span class="required">*</span></label>
+        <input id="hobbies" name="hobbies" type="text" maxlength="300" aria-describedby="hobbies-hint">
+        <p class="hint" id="hobbies-hint">List your hobbies, separated by commas (up to 300 characters).</p>
+        <div class="error" data-error="hobbies"></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="field" data-field="sleepHours">
+          <label for="sleepHours">11. Daily sleeping hours <span class="required">*</span></label>
+          <input id="sleepHours" name="sleepHours" type="number" min="0" max="24" step="0.5">
+          <p class="hint">Typical hours of sleep in 24 hours</p>
+          <div class="error" data-error="sleepHours"></div>
+        </div>
+        <div class="field" data-field="exerciseMinutes">
+          <label for="exerciseMinutes">12. Daily exercise duration (minutes) <span class="required">*</span></label>
+          <input id="exerciseMinutes" name="exerciseMinutes" type="number" min="0" max="600" step="1">
+          <p class="hint">Enter 0 if you do not exercise</p>
+          <div class="error" data-error="exerciseMinutes"></div>
+        </div>
+      </div>
+
+      <div class="field" data-field="country">
+        <label for="country">13. Country of residence <span class="required">*</span></label>
+        <input id="country" name="country" type="text" list="country-list" maxlength="80">
+        <datalist id="country-list">
+          <option value="South Korea"></option>
+          <option value="Japan"></option>
+          <option value="China"></option>
+          <option value="United States"></option>
+          <option value="United Kingdom"></option>
+          <option value="Vietnam"></option>
+          <option value="Philippines"></option>
+          <option value="India"></option>
+        </datalist>
+        <div class="error" data-error="country"></div>
+      </div>
+
+      <button class="btn btn-solid" type="submit">Submit</button>
+    </form>
+  </main>
+
+  <div class="modal" id="confirm-modal" role="dialog" aria-labelledby="confirm-title" aria-modal="true">
+    <div class="modal-card">
+      <h2 id="confirm-title">Response saved</h2>
+      <p>Your answers were stored as one dataset record in this browser. They will appear on the administrator dashboard immediately.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a class="btn btn-solid" href="admin.html">Open administrator dashboard</a>
+        <button class="btn btn-ghost" type="button" data-close-modal>Submit another person</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">Required fields are marked with *</footer>
+  <script src="js/nav.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/questionnaire.js"></script>
+</body>
+</html>

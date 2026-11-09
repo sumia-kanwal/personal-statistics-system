@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrator | Profile Questionnaire</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#admin-page">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">PS</span>
+        <span>Profile Questionnaire</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false">Menu</button>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="questionnaire.html">Questionnaire</a>
+        <a href="admin.html" aria-current="page">Administrator</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="admin-page" class="page">
+    <section id="login-panel" class="card login-box">
+      <h1>Administrator sign-in</h1>
+      <p>This dashboard shows only records submitted in this browser. The PIN is a classroom lock, not a secure server login.</p>
+      <form id="login-form">
+        <div class="field">
+          <label for="admin-pin">PIN</label>
+          <input id="admin-pin" name="pin" type="password" inputmode="numeric" autocomplete="off">
+          <p class="hint">Default PIN: 314159 (documented in README)</p>
+        </div>
+        <div class="error" id="login-error"></div>
+        <button class="btn btn-solid" type="submit">Enter dashboard</button>
+      </form>
+    </section>
+
+    <section id="dash-panel" hidden>
+      <h1>Administrator dashboard</h1>
+      <p>Descriptive statistics are computed from actual submitted responses only.</p>
+      <div class="error" id="admin-storage-error" role="alert"></div>
+      <div class="btn-row">
+        <button class="btn btn-solid" type="button" id="export-csv">Export CSV</button>
+        <button class="btn btn-ghost" type="button" id="clear-records">Clear all records</button>
+        <button class="btn btn-ghost" type="button" id="logout">Sign out</button>
+      </div>
+
+      <section class="stats" aria-label="Summary statistics">
+        <article class="stat">
+          <div class="label">Total participants</div>
+          <div class="value" id="stat-total">0</div>
+        </article>
+        <article class="stat">
+          <div class="label">Average age</div>
+          <div class="value" id="stat-age">—</div>
+        </article>
+        <article class="stat">
+          <div class="label">Average height</div>
+          <div class="value" id="stat-height">—</div>
+        </article>
+        <article class="stat">
+          <div class="label">Average weight</div>
+          <div class="value" id="stat-weight">—</div>
+        </article>
+        <article class="stat">
+          <div class="label">Gender distribution</div>
+          <div class="value" style="font-size:1rem;" id="stat-gender">No records</div>
+        </article>
+        <article class="stat">
+          <div class="label">Education-level distribution</div>
+          <div class="value" style="font-size:1rem;" id="stat-education">No records</div>
+        </article>
+      </section>
+
+      <div id="empty-state" class="empty section">
+        <h2>The dataset is empty</h2>
+        <p>No participant has submitted the questionnaire yet. There is no generated or sample research data. After the first real submission, totals, averages, charts, and the record table will appear here.</p>
+        <a class="btn btn-solid" href="questionnaire.html">Open questionnaire</a>
+      </div>
+
+      <section class="charts section" id="charts-wrap" hidden>
+        <article class="chart-box">
+          <h3>Gender distribution</h3>
+          <canvas id="chart-gender" width="520" height="280"></canvas>
+        </article>
+        <article class="chart-box">
+          <h3>Education-level distribution</h3>
+          <canvas id="chart-education" width="520" height="280"></canvas>
+        </article>
+        <article class="chart-box">
+          <h3>Student / employee status</h3>
+          <canvas id="chart-status" width="520" height="280"></canvas>
+        </article>
+        <article class="chart-box">
+          <h3>Marital status</h3>
+          <canvas id="chart-marital" width="520" height="280"></canvas>
+        </article>
+      </section>
+
+      <section class="section" id="table-wrap" hidden>
+        <h2>Collected records</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Submitted</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Nationality</th>
+                <th>Education</th>
+                <th>Height</th>
+                <th>Weight</th>
+                <th>Marital</th>
+                <th>Status</th>
+                <th>Hobbies</th>
+                <th>Sleep (h)</th>
+                <th>Exercise (min)</th>
+                <th>Country</th>
+              </tr>
+            </thead>
+            <tbody id="records-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">CSV export can be analysed with cpp/stats.cpp · Data is stored in this browser only</footer>
+  <script src="js/nav.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
